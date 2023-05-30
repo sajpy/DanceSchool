@@ -1,0 +1,37 @@
+﻿@model DanceSchool.DTO.User.UserDto
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h2>Profile</h2>
+<hr />
+
+<div class="col-lg-8">
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <p class="mb-0">Full Name</p>
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.FirstName)
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.Email)
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-12">
+                    <a class="btn btn-info " asp-area="" asp-controller="User" asp-action="Update">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

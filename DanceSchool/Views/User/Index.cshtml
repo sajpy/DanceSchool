@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DanceSchool.DTO.User.UserDto>
+
+<h2>Users</h2>
+
+<p>
+    <a asp-controller="User" asp-action="Index">Index</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                First name
+            </th>
+            <th>
+                Last name
+            <th>
+                Email
+            </th>
+            <th>
+                Roles
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ToList())
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @foreach (var role in item.RoleNames)
+                    {
+                        @Html.DisplayFor(modelItem => role)
+                    }
+                </td>
+                <td>
+                    <a asp-controller="User" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-controller="User" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

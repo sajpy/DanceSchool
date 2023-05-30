@@ -1,0 +1,50 @@
+﻿@model DanceSchool.DTO.User.UserLoginDto
+
+<h2>Login</h2>
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<div class="py-5 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-md-6 col-10 bg-white p-5">
+                <h1 class="mb-4">Log in</h1>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <div class="input-group input-group-merge input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                            </div>
+                            <input type="email" asp-for="@Model.Email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="invalid-feedback pl-2 text-left" style="display:block;">
+                            <span asp-validation-for="@Model.Email"></span>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="input-group input-group-merge input-group-alternative" id="show_hide_password">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-key"></i></span>
+                            </div>
+                            <input type="password" asp-for="@Model.Password" class="form-control" placeholder="Password">
+                            <div class="input-group-prepend" id="eye">
+                                <a class="input-group-text pointer"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                            </div>
+                            <small class="form-text text-muted text-right"></small>
+                        </div>
+                        <div class="invalid-feedback pl-2 text-left" style="display:block;">
+                            <span asp-validation-for="@Model.Password"></span>
+                        </div>
+    
+                    </div>
+                    <button type="submit" class="btn" value="Login">Log in</button>
+                }
+            </div>
+        </div>
+
+    </div>
+</div>

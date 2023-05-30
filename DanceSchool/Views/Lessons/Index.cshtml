@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Lesson>
+
+<h1>Lessons</h1>
+
+<p>
+    <a asp-action="Create">Create New Lesson</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Type</th>
+            <th>Trainer</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lesson in Model)
+        {
+            <tr>
+                <td>@lesson.StartDateTime</td>
+                <td>@lesson.EndDateTime</td>
+                <td>@lesson.Type</td>
+                <td>@lesson.Trainer.FirstName @lesson.Trainer.LastName</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@lesson.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@lesson.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@lesson.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
